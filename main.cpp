@@ -33,6 +33,7 @@ void listen(){
     std::cout << "Ghiceste: ";
     char literai;
     std::cin >> literai;
+    std::cout << "\n";
     checkletter(literai);
 }
 
@@ -47,20 +48,21 @@ void checkletter(const char litera){
     std::string copie = currentword;
     pos = currentword.find(litera);
     if(pos != -1){
-        guessword.replace(pos, 1, litera);
+        guessword[pos] = litera;
         do{
-            copie.erase(pos);
+            copie[pos] = ' ';
             anotherpos = copie.find(litera);
             if(anotherpos != -1)
-                guessword.replace(pos, 1, litera);
+                guessword[pos] = litera;
             else
                 break;
         }
-        while(true)}
+        while(anotherpos != -1);
+        std::cout << guessword;}
     else
         std::cout << "\nLitera respectiva nu se afla in cuvant!" << std::endl;
 }
 
 void refresh(){
-    std::cout << 
+    std::cout << "refresh";
 }
