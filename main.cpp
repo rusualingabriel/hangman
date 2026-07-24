@@ -11,6 +11,7 @@ int cwords[] {5, 3, 7};
 
 void selectword();
 void startgame();
+void checkletter(const char litera);
 
 int main(){
     std::cout << "==========================Hangman==========================\n";
@@ -29,18 +30,37 @@ void selectword(){
 }
 
 void listen(){
-    
+    std::cout << "Ghiceste: ";
+    char literai;
+    std::cin >> literai;
+    checkletter(literai);
 }
 
 void startgame(){
     std::cout << "Cuvantul tau are " << cwords[gindex] << "!\n" << guessword << std::endl;
-    std::cout << "Ghiceste:"
+    listen();
 }
 
-void checkletter(){
-    
+void checkletter(const char litera){
+    int pos;
+    int anotherpos;
+    std::string copie = currentword;
+    pos = currentword.find(litera);
+    if(pos != -1){
+        guessword.replace(pos, 1, litera);
+        do{
+            copie.erase(pos);
+            anotherpos = copie.find(litera);
+            if(anotherpos != -1)
+                guessword.replace(pos, 1, litera);
+            else
+                break;
+        }
+        while(true)}
+    else
+        std::cout << "\nLitera respectiva nu se afla in cuvant!" << std::endl;
 }
 
 void refresh(){
-
+    std::cout << 
 }
