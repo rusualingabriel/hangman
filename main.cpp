@@ -30,7 +30,7 @@ void selectword(){
 }
 
 void listen(){
-    std::cout << "Ghiceste: ";
+    std::cout << "\nGhiceste: ";
     char literai;
     std::cin >> literai;
     std::cout << "\n";
@@ -58,9 +58,11 @@ void checkletter(const char litera){
                 break;
         }
         while(anotherpos != -1);
-        std::cout << guessword;}
-    else
+        std::cout << guessword;
+        listen();}
+    else{
         std::cout << "\nLitera respectiva nu se afla in cuvant!" << std::endl;
+        listen();}
 }
 
 void refresh(){
